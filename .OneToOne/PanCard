@@ -1,46 +1,48 @@
 package org.SRK;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
-public class Person {
-
+public class PanCard {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column(unique = true,nullable = false)
+	private String number;
 	@Column(nullable = false)
-	private String name;
+	private String state;
 	@Column(nullable = false)
-	private String place;
+	private LocalDate dob;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getNumber() {
+		return number;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNumber(String number) {
+		this.number = number;
 	}
-	public String getPlace() {
-		return place;
+	public String getState() {
+		return state;
 	}
-	public void setPlace(String place) {
-		this.place = place;
+	public void setState(String state) {
+		this.state = state;
 	}
-	public PanCard getPan() {
-		return pan;
+	public LocalDate getDob() {
+		return dob;
 	}
-	public void setPan(PanCard pan) {
-		this.pan = pan;
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
 	}
-	@OneToOne
-	private PanCard pan;
+	
 }
